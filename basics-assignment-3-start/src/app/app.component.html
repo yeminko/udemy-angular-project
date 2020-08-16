@@ -10,4 +10,24 @@
       </ol>
     </div>
   </div>
+  <hr>
+  <div class="row">
+    <div class="col-xs-2">
+      <button class="btn btn-primary" (click)="toggleButton()">Display Details</button>
+    </div>
+    <div class="col-xs-10">
+      <p *ngIf="isShow">Secret Password = tuna</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <h1 style="font-size: 1.2em;">Logs: </h1>
+      <ol>
+        <li *ngFor="let log of logs; let i = index" 
+            [ngStyle]="{ backgroundColor: i > 3 ? 'blue': '' }">
+        <span [ngClass]="{ 'log-text': i > 3}">{{log}}</span>
+      </li>
+      </ol>
+    </div>
+  </div>
 </div>
