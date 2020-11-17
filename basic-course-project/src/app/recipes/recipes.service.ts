@@ -10,34 +10,41 @@ export class RecipesService {
 
   recipeChanged = new Subject<Recipe[]>();
 
-  private recipes: Recipe[] = [
-    new Recipe(
-      'A Test Recipe 1',
-      'This is simply test 1',
-      'https://cdn.pixabay.com/photo/2016/06/15/19/09/food-1459693_960_720.jpg', 
-      [
-        new Ingredient('Meat', 1),
-        new Ingredient('French Fries', 20)
-      ]),
-    new Recipe(
-      'A Test Recipe 2', 
-      'This is simply test 2', 
-      'https://cdn.pixabay.com/photo/2016/06/15/19/09/food-1459693_960_720.jpg', 
-      [
-        new Ingredient('Meat', 2),
-        new Ingredient('French Fries', 22)
-      ]),
-    new Recipe(
-      'A Test Recipe 3', 
-      'This is simply test 3', 
-      'https://cdn.pixabay.com/photo/2016/06/15/19/09/food-1459693_960_720.jpg', 
-      [
-        new Ingredient('Meat', 4),
-        new Ingredient('French Fries', 10)
-      ]),
-  ];
+  // private recipes: Recipe[] = [
+  //   new Recipe(
+  //     'A Test Recipe 1',
+  //     'This is simply test 1',
+  //     'https://cdn.pixabay.com/photo/2016/06/15/19/09/food-1459693_960_720.jpg', 
+  //     [
+  //       new Ingredient('Meat', 1),
+  //       new Ingredient('French Fries', 20)
+  //     ]),
+  //   new Recipe(
+  //     'A Test Recipe 2', 
+  //     'This is simply test 2', 
+  //     'https://cdn.pixabay.com/photo/2016/06/15/19/09/food-1459693_960_720.jpg', 
+  //     [
+  //       new Ingredient('Meat', 2),
+  //       new Ingredient('French Fries', 22)
+  //     ]),
+  //   new Recipe(
+  //     'A Test Recipe 3', 
+  //     'This is simply test 3', 
+  //     'https://cdn.pixabay.com/photo/2016/06/15/19/09/food-1459693_960_720.jpg', 
+  //     [
+  //       new Ingredient('Meat', 4),
+  //       new Ingredient('French Fries', 10)
+  //     ]),
+  // ];
+
+  recipes: Recipe[] = [];
 
   constructor() { }
+
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes;
+    this.recipeChanged.next(this.recipes.slice());
+  }
 
   getRecipes() {
     return this.recipes.slice();
