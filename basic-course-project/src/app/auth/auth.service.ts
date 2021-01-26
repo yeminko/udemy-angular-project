@@ -135,6 +135,7 @@ export class AuthService {
           userId: loadedUser.id,
           token: loadedUser.token,
           expiratioinDate: new Date(userData._tokenExpirationDate),
+          redirect: false
         })
       );
 
@@ -160,6 +161,7 @@ export class AuthService {
         userId: userId,
         token: token,
         expiratioinDate: expirationDate,
+        redirect: false
       })
     );
 
